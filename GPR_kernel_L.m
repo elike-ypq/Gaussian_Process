@@ -1,0 +1,11 @@
+function y=GPR_kernel_L(a,b,L)
+N1=length(a);
+N2=length(b);
+sigma_f=1;
+M_1=1./L.*eye(N1);
+a=M_1*a;
+M_2=1./L.*eye(N2);
+b=b*M_2;
+s=a.^2*ones(1,N2)+ones(N1,1)*b.^2-2.*a*b;
+y=sigma_f.^2.*exp(-.5.*s);
+% y=sigma_f.^2.*exp(-.5.*(a-b)'*M*(a-b));
