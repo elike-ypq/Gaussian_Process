@@ -12,9 +12,9 @@ if N1==N2
     sw_1=1;
 end
 sigma_f=1;
-M_1=L.*eye(N1);
+M_1=1./L.*eye(N1);
 a=M_1*a;
-M_2=L.*eye(N2);
+M_2=1./L.*eye(N2);
 b=b*M_2;
 r2=(a.^2)*ones(1,N2)+ones(N1,1)*(b.^2)-2.*(a*b);
 y=sigma_f.^2.*exp(-.5.*r2)+sw_1*sigma_n2*eye(N1,N2);
